@@ -19,22 +19,22 @@ def estrategi(entrada:str):
         return 'Z'#sissors
 
 def recuento_puntuacion(entrada:str,respuesta:str):
-    if entrada=='A' and respuesta=='Y': #rock vs paper
+    if entrada=='A' and respuesta=='X': #rock vs rock
+        return 1+3
+    elif entrada=='A' and respuesta=='Y': #rock vs paper
         return 2+6
-    elif entrada=='A' and respuesta=='X': #rock vs rock
-        return 3+3
     elif entrada=='A' and respuesta=='Z': #rock vs sissors
-        return 1+0
-    elif entrada=='B' and respuesta=='Y': #paper vs paper
-        return 3+3
+        return 3+0
     elif entrada=='B' and respuesta=='X': #paper vs rock
         return 1+0
+    elif entrada=='B' and respuesta=='Y': #paper vs paper
+        return 2+3
     elif entrada=='B' and respuesta=='Z': #paper vs sissors
-        return 2+6
-    elif entrada=='C' and respuesta=='Y': #sissors vs paper
-        return 1+0
+        return 3+6
     elif entrada=='C' and respuesta=='X': #sissors vs rock
-        return 2+6
+        return 1+6
+    elif entrada=='C' and respuesta=='Y': #sissors vs paper
+        return 2+0
     elif entrada=='C' and respuesta=='Z': #sissors vs sissors
         return 3+3
 
@@ -50,5 +50,4 @@ for i in lines2:
 
 sum(resultado_con_estrategia)
 sum(resultado_sin_estrategia)
-len(lines2)
-len(resultado_con_estrategia)
+print(f'el resultado del ejercicio es: {sum(resultado_sin_estrategia)}')
