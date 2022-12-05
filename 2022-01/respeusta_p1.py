@@ -23,4 +23,6 @@ for i in lines1:
 # extract max of list and index
 maximo = max(elfos)
 index = elfos.index(maximo)
-print(f'El elfo {index+1} tiene el regalo mas grande con {maximo}')
+print(f'El elfo {index+1} és el que tiene mas calorias con: {maximo}')
+elfos.sort(reverse=True)
+print(f'Los 3 elfos con mas calorias tienen: {sum(elfos[:3])}')

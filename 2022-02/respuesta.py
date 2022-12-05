@@ -64,8 +64,15 @@ calculo_respuesta = {
     'B': {'X': 1+0, 'Y': 2+3, 'Z': 3+6},
     'C': {'X': 1+6, 'Y': 2+0, 'Z': 3+3}
 }
+calculo_respuesta_2 = {
+    'A': {'X': 3+0, 'Y': 1+3, 'Z': 2+6},
+    'B': {'X': 1+0, 'Y': 2+3, 'Z': 3+6},
+    'C': {'X': 2+0, 'Y': 3+3, 'Z': 1+6}
+}
 acumulado_respuesta = 0
+acumulado_respuesta_2 = 0
 for i in lines2:
     acumulado_respuesta += calculo_respuesta[i[0]][i[1]]
-
+    acumulado_respuesta_2 += calculo_respuesta_2[i[0]][i[1]]
 print(f'el resultado del ejercicio algo mas pro es: {acumulado_respuesta}')
+print(f'el resultado del ejercicio algo mas pro es: {acumulado_respuesta_2}')

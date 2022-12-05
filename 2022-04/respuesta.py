@@ -24,13 +24,18 @@ def list_of_elf_sections(initial_section, end_section):
     return list_elf_sections
 
 
-def check_if_we_have_a_free_elf(list_of_elf_section, list_of_other_elf_sections):
+def check_if_we_have_a_free_elf(
+    list_of_elf_section, 
+    list_of_other_elf_sections,
+    overlap=False):
     free_elf1 = False
     free_elf2 = False
     # compare the list of elf sections with the list of other elf sections
     for section in list_of_elf_section:
         if section in list_of_other_elf_sections:
             free_elf1 = True
+        elif overlap:
+            next
         else:
             free_elf1 = False
             break
@@ -38,17 +43,21 @@ def check_if_we_have_a_free_elf(list_of_elf_section, list_of_other_elf_sections)
     for section in list_of_other_elf_sections:
         if section in list_of_elf_section:
             free_elf2 = True
+        elif overlap:
+            next
         else:
             free_elf2 = False
             break
     # if one elfs is free return 1
     free_elf = free_elf1 or free_elf2
 
+
     return free_elf
 
 
 def main():
     list_of_free_elfs = []
+    list_of_free_elfs_overlap = []
     for elfs in list_input:
         elf1, elf2 = elfs
 
@@ -66,7 +75,11 @@ def main():
             list_of_elf1_sections, list_of_elf2_sections)
         list_of_free_elfs.append(free_elf)
 
+        free_elf_overlap = check_if_we_have_a_free_elf(
+            list_of_elf1_sections, list_of_elf2_sections, overlap=True)
+        list_of_free_elfs_overlap.append(free_elf_overlap)
     print(f' number of free elfs are: {sum(list_of_free_elfs)}')
+    print(f' number of free elfs overlap are: {sum(list_of_free_elfs_overlap)}')
 
 
 if __name__ == '__main__':
